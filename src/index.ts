@@ -54,5 +54,5 @@ export function pass<T>(value: T = void 0): T | void {
 
 
 export default For
-export { genFillAsLength, genFillAsValue, genStepArray, breakPoint, type BreankPoint } from "./operater.js";
+export { genFillAsLength, genFillAsValue, genStepArray, withNormalArray, breakPoint, type BreankPoint } from "./operater.js";
 export type { ForOptions, ForResult } from "./type"

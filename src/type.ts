@@ -1,7 +1,7 @@
 import { BreankPoint } from "./operater"
 
-export interface ForOptions<T> {
-  next(value: T): () => T | BreankPoint
+export interface ForOptions<T, R = T> {
+  next(value: T): () => R | BreankPoint
 }
 
 export interface ForResult<T> {
@@ -11,3 +11,5 @@ export interface ForResult<T> {
   toArray(this: ForResult<T>): T[]
   fork(options: ForOptions<T>): ForResult<T>
 }
+
+export type ArrayValue<T> = T extends Array<infer V> ? V : never

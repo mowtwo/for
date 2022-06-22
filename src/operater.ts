@@ -1,4 +1,4 @@
-import type { ForOptions } from "./type";
+import type { ArrayValue, ForOptions } from "./type";
 
 const breakDesc = '$$__break-point__'
 
@@ -44,6 +44,19 @@ export function genFillAsValue<T>(len: number): ForOptions<T> {
         return _breakPoint
       }
       return v
+    }
+  }
+}
+
+export function withNormalArray<T extends Array<any>>(): ForOptions<T, ArrayValue<T>> {
+  let i = 0
+  return {
+    next: v => () => {
+      if (v.length === i) {
+        i = 0
+        return _breakPoint
+      }
+      return v[i++]
     }
   }
 }
